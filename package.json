@@ -30,7 +30,8 @@
   },
   "homepage": "https://github.com/cardozov/ci-sonarqube#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "helmet": "^6.0.1"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",

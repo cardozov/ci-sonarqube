@@ -1,0 +1,44 @@
+{
+  "name": "ci-sonarqube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardozov/ci-sonarqube.git"
+  },
+  "author": "Vinicius Cardozo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cardozov/ci-sonarqube/issues"
+  },
+  "homepage": "https://github.com/cardozov/ci-sonarqube#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "nodemon": "^2.0.22",
+    "sonar-scanner": "^3.1.0",
+    "sonarqube-scanner": "^3.0.1",
+    "supertest": "^6.3.3"
+  }
+}

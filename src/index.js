@@ -1,5 +1,8 @@
 const express = require('express')
+const helmet = require('helmet')
+
 const app = express()
+app.use(helmet())
 const port = process.env.PORT || 3003
 
 app.get('/', (req, res) => {

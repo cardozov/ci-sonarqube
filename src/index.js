@@ -20,7 +20,7 @@ app.get('/error', (req, res) => {
 app.get('/timeout', (req, res) => {
     setTimeout(() => {
         return res.status(200).json({ status: 'OK' })
-    }, 10000)
+    }, 2000)
 })
 
 let server = app.listen(port, () => {

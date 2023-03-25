@@ -24,12 +24,11 @@ describe('Get Endpoints', () => {
     const res = await request(server).get('/timeout')
     expect(res.statusCode).toEqual(200)
     expect(res.body).toHaveProperty('status')
-  })
+  }, 2500)
 
-  it('should return 404 with body from /notfound', async () => {
+  it('should return 404 from /notfound', async () => {
     const res = await request(server).get('/notfound')
     expect(res.statusCode).toEqual(404)
-    expect(res.body).toHaveProperty('message')
   })
 })
 

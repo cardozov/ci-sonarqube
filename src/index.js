@@ -21,18 +21,24 @@ app.route('/')
     .delete((req, res) => {
         return res.status(200).json({ nome: 'Vinicius Cardozo' })
     })
+    .options((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
 
-app.get('/health', (req, res) => {
-    return res.status(200).json({ status: 'UP' })
-})
+app.route('/health')
+    .get((req, res) => {
+        return res.status(200).json({ status: 'UP' })
+    })
 
-app.get('/error', (req, res) => {
-    return res.status(500).json({ status: 'ERROR' })
-})
+app.route('/error')
+    .get((req, res) => {
+        return res.status(500).json({ status: 'ERROR' })
+    })
 
-app.get('/timeout', (req, res) => {
-    setTimeout(() => {
-        return res.status(200).json({ status: 'OK' })
+app.route('/timeout')
+    .get((req, res) => {
+        setTimeout(() => {
+            return res.status(200).json({ status: 'OK' })
     }, 2000)
 })
 

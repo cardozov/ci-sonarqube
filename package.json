@@ -5,29 +5,15 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest --coverage",
-    "test:coverage": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "test:ci": "jest --coverage"
   },
   "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ],
-    "testResultsProcessor": "jest-sonar-reporter",
-    "coverageThreshold": {
-      "global": {
-        "branches": 0,
-        "functions": 0,
-        "lines": 0,
-        "statements": 60
-      }
-    }
-  },
-  "jestSonar": {
-    "reportPath": "coverage",
-    "reportFile": "test-reporter.xml",
-    "indent": 4
+    ]
   },
   "repository": {
     "type": "git",

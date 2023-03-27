@@ -5,9 +5,23 @@ const app = express()
 app.use(helmet())
 const port = process.env.PORT || 3003
 
-app.get('/', (req, res) => {
-    return res.status(200).json({ nome: 'Vinicius Cardozo' })
-})
+app.route('/')
+    .get((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
+    .post((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
+    .put((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
+    .patch((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
+    .delete((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
+
 
 app.get('/health', (req, res) => {
     return res.status(200).json({ status: 'UP' })

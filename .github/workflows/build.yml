@@ -11,15 +11,19 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node-version }}
       - name: Node install dependencies
         run: npm install
       - name: Run unit tests
-        run: npm run test
+        run: npm run test:ci
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

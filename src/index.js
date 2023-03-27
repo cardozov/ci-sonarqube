@@ -6,6 +6,9 @@ app.use(helmet())
 const port = process.env.PORT || 3003
 
 app.route('/')
+    .options((req, res) => {
+        return res.status(200).json({ nome: 'Vinicius Cardozo' })
+    })
     .get((req, res) => {
         return res.status(200).json({ nome: 'Vinicius Cardozo' })
     })
